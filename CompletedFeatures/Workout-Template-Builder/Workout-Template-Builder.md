@@ -27,7 +27,7 @@ A canvas-style builder where users assemble a workout template that can be saved
 ## Acceptance Criteria
 - A user can create a new template and add at least one block to the canvas.
 - The Template Builder canvas loads when the user clicks a "Create Template" button.
-- A user can edit exercise details (name, sets, target reps per set, notes).
+- A user can edit exercise details (name, sets, target reps per set, notes, rest between sets).
 - A user can edit rest timer duration.
 - A user can reorder or delete blocks.
 - A user can save a template with a required name.
@@ -36,6 +36,7 @@ A canvas-style builder where users assemble a workout template that can be saved
 - Each exercise has at least one set.
 - Target reps default to 10 for new exercise sets.
 - Sets have a maximum of 6.
+- Rest between sets defaults to 60 seconds per exercise.
 - Rest timers default to 60 seconds.
 - Rest timers must be greater than 0 seconds; a 0 value removes the rest block.
 - Drag-and-drop reordering works on mobile web.
@@ -43,6 +44,7 @@ A canvas-style builder where users assemble a workout template that can be saved
 - A remove control (e.g., "x") is available on each block.
 - A "+" control at the bottom prompts for Exercise or Rest.
 - A Save button at the bottom saves the template into local in-memory storage.
+- Numeric inputs are free-text with validation (no spinner controls).
 
 ## Data (Draft)
 Template
@@ -59,6 +61,7 @@ Block (type-specific)
 - name: string
 - sets?: number
 - reps?: number
+- restBetweenSetsSec?: number
 - durationSec?: number
 - notes?: string
 
