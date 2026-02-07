@@ -14,9 +14,9 @@ describe('login flow', () => {
     await user.click(loginButton)
     const input = screen.getByLabelText(/username/i)
     expect(input).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /login/i })).toBeNull()
 
-    await user.type(input, 'Tony')
-    await user.click(loginButton)
+    await user.type(input, 'Tony{enter}')
 
     expect(screen.getByText('Tony')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /create template/i })).toBeInTheDocument()
